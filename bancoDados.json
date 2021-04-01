@@ -1,0 +1,60 @@
+{
+    "pets": [
+      {
+        "nome": "Billy",
+        "tipo": "cachorro",
+        "idade": 7,
+        "raca": "Beagle",
+        "peso": 5,
+        "tutor": "William Faraday",
+        "contato": "(81)99999-9999",
+        "vacinado": "false",
+        "servicos": []
+      },
+      {
+        "nome": "Snoop",
+        "tipo": "cachorro",
+        "idade": 7,
+        "raca": "Vira-Lata",
+        "peso": 2,
+        "tutor": "Charlie Brown",
+        "contato": "(81)99999-9999",
+        "vacinado": "false",
+        "servicos": []
+      },
+      {
+        "nome": "Scooby",
+        "tipo": "cachorro",
+        "idade": 3,
+        "raca": "Dogue Alemão",
+        "peso": 30,
+        "tutor": "Salsicha",
+        "contato": "(81)99999-9999",
+        "vacinado": "false",
+        "servicos": []
+      },
+      {
+        "nome": "Frank",
+        "tipo": "cachorro",
+        "idade": 4,
+        "raca": "Pug",
+        "peso": 3,
+        "tutor": "W",
+        "contato": "(81)99999-9999",
+        "vacinado": "false",
+        "servicos": []
+      },
+        {
+        "nome": "xuxu",
+        "tipo": "cachorro",
+        "idade": 9,
+        "raca": "vira-lata",
+        "peso": 14,
+        "tutor": "Severino",
+        "contato": "(81)99999-9999",
+        "vacinado": "false",
+        "servicos": []
+      }
+    
+    ]
+  }
