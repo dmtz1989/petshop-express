@@ -25,7 +25,7 @@ const petshop = {
     vacinarPet: () => {
         if (!pet.vacinado) {
             pet.vacinado = true;
-            atualizarBanco();
+            petshop.atualizarBanco();
             console.log(`${pet.nome} foi vacinado com sucesso!`);
         } else {
             console.log(`Ops, ${pet.nome} já está vacinado!`);
@@ -39,7 +39,7 @@ const petshop = {
 
         bancoDados.pets = bancoDados.pets.map((pet) => {
             if (!pet.vacinado) {
-                vacinarPet(pet);
+                petshop.vacinarPet(pet);
                 petVacinadosCampanha++;
             }
         return pet;
@@ -50,7 +50,7 @@ const petshop = {
         novosPets.forEach((novoPet) => {
             bancoDados.pets.push(novoPet)
         });
-            atualizarBanco();
+            petshop.atualizarBanco();
             novosPets.forEach((pet) => {
                 console.log(`${pet.nome} foi adicionado com sucesso`);
             });
@@ -60,7 +60,7 @@ const petshop = {
             'nome':'banho',
             'data': moment().format('DD-MM-YYYY')
         });
-        atualizarBanco();
+        petshop.atualizarBanco();
         console.log(`${pet.nome} está de banho tomado!`);
     },
     tosarPet : pet => {
@@ -68,7 +68,7 @@ const petshop = {
             'nome':'tosa',
             'data': moment().format('DD-MM-YYYY')
         });
-        atualizarBanco();
+        petshop.atualizarBanco();
         console.log(`${pet.nome} está com cabelinho na régua :)`);
     },
     apararUnhasPet: pet => {

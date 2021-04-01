@@ -112,6 +112,28 @@
       "contato": "(11) 99999-9999",
       "vacinado": true,
       "servicos": []
+    },
+    {
+      "nome": "Costelinha",
+      "tipo": "cachorro",
+      "idade": 5,
+      "raca": "Vira-lata",
+      "peso": 3,
+      "tutor": "Doug",
+      "contato": "(11) 98899-4545",
+      "vacinado": true,
+      "servicos": []
+    },
+    {
+      "nome": "Costelinha",
+      "tipo": "cachorro",
+      "idade": 5,
+      "raca": "Vira-lata",
+      "peso": 3,
+      "tutor": "Doug",
+      "contato": "(11) 98899-4545",
+      "vacinado": true,
+      "servicos": []
     }
   ]
 }
