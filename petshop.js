@@ -11,18 +11,21 @@ const petshop = {
         fs.writeFileSync('bancoDados.json', petsAtualizado, 'utf-8');
     },
     listarPets: () => {
-        
+        let textoListaPets = "PETSHOP \n"
+    
         bancoDados.pets.forEach((pet)=> {
-            let {nome, idade, tipo, raca, vacinado, servicos} = pet;
-            console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}, ${(pet.vacinado) ? 'vacinado': 'não vacinado' }`);
+            
+            textoListaPets += (`TUTOR: ${pet.tutor} - CONTATO: ${pet.contato} - NOME: ${pet.nome}, IDADE: ${pet.idade}, TIPO: ${pet.tipo}, RAÇA: ${pet.raca}, VACINADO:${(pet.vacinado) ? 'vacinado': 'não vacinado' } \n`);
             pet.servicos.forEach((servico) =>{
-            console.log(`${servico.data} - ${servico.nome}`);
+            textoListaPets += (`${servico.data} - ${servico.nome}`);
     });
 });
+    return textoListaPets;
     },
     vacinarPet: () => {
         if (!pet.vacinado) {
             pet.vacinado = true;
+            atualizarBanco();
             console.log(`${pet.nome} foi vacinado com sucesso!`);
         } else {
             console.log(`Ops, ${pet.nome} já está vacinado!`);
@@ -33,6 +36,7 @@ const petshop = {
         console.log("vacinando...");
     
         let petVacinadosCampanha = 0;
+
         bancoDados.pets = bancoDados.pets.map((pet) => {
             if (!pet.vacinado) {
                 vacinarPet(pet);
@@ -40,14 +44,13 @@ const petshop = {
             }
         return pet;
     });
-    
         console.log(`${petVacinadosCampanha} pets foram vaciados nessa campanha!`);
     },
     adicionarPet: (...novosPets) => {
         novosPets.forEach((novoPet) => {
             bancoDados.pets.push(novoPet)
         });
-            atualizarDados();
+            atualizarBanco();
             novosPets.forEach((pet) => {
                 console.log(`${pet.nome} foi adicionado com sucesso`);
             });
@@ -57,6 +60,7 @@ const petshop = {
             'nome':'banho',
             'data': moment().format('DD-MM-YYYY')
         });
+        atualizarBanco();
         console.log(`${pet.nome} está de banho tomado!`);
     },
     tosarPet : pet => {
@@ -64,6 +68,7 @@ const petshop = {
             'nome':'tosa',
             'data': moment().format('DD-MM-YYYY')
         });
+        atualizarBanco();
         console.log(`${pet.nome} está com cabelinho na régua :)`);
     },
     apararUnhasPet: pet => {
@@ -71,16 +76,17 @@ const petshop = {
             'nome':'corte de unhas',
             'data': moment().format('DD-MM-YYYY')
         });
+        atualizarBanco();
         console.log(`${pet.nome} está de unhas aparadas!`);
     },
-    atenderCliente : (pet, funcao) => {
+    atenderCliente : (pet, servico) => {
         console.log(`\n atendendo ${pet.nome}`);
-        funcao(pet);
-        console.log('fim do atendimento \n');
+        servico(pet);
+        console.log('Até logo!!! \n');
     },
     buscarPet: (nomePet) => {
         let petEncontrado = bancoDados.pets.find((pet) =>{
-            return pet.nome === nomePet;
+            return pet.nome == nomePet;
         });
     
         return petEncontrado ? petEncontrado: `nenhum pet encontrado com o nome ${nomePet}`;
@@ -101,7 +107,7 @@ const petshop = {
         }
     },
     contatoTutor: (pet) => {
-        let {nome, tutor, contato} = pet.nome;
+        let {nome, tutor, contato} = pet;
         return `Tutor: ${tutor} - Contato: ${contato} - Pet: ${nome}`
     },
     filtrarTutor: (nomeTutor) => {
@@ -113,7 +119,7 @@ const petshop = {
             console.log(`${pet.nome} - ${pet.tipo}`)
         });
     }
-
-
 }
+
+module.exports = petshop;
 
